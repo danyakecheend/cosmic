@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Беларусь - Дорога к звездам</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="preloader">
+    <div class="rocket">🚀</div>
+    <p>Загрузка космических технологий...</p>
+</div>
+    <canvas id="space-canvas"></canvas>
+    
+    <header class="main-header">
+        <h1 class="title">Беларусь - Дорога к звездам</h1>
+        <button class="mission-button">Начать миссию</button>
+        <button class="mission-button">Галерея достижений</button>
+        <button class="mission-button">3D Музей</button>
+    </header>
+
+    <section class="timeline">
+        <div class="timeline-item">
+            <h2>1981 — Запуск первого белорусского спутника</h2>
+            <p>Описание события и вклада ученых...</p>
+        </div>
+        <!-- Добавьте больше событий -->
+    </section>
+    <!-- После секции timeline -->
+<section class="ar-section">
+    <h2 class="section-title">Посмотрите спутник БЕЛКА в AR!</h2>
+    <div class="ar-instructions">
+        <p>1. Распечатайте <a href="hiro-marker.pdf" download>маркер</a></p>
+        <p>2. Наведите камеру на маркер</p>
+    </div>
+    <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix;">
+        <a-marker preset="hiro">
+            <a-entity 
+                gltf-model="models/belka.gltf"
+                scale="0.5 0.5 0.5"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            </a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</section>
+<!-- После AR-секции -->
+<section class="scientists-gallery">
+    <h2 class="section-title">Легенды белорусской космонавтики</h2>
+    <div class="gallery-container" id="gallery"></div>
+</section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Перед script.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="css/styles.css"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
